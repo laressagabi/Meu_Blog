@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js%22%3E%3C/script&gt"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog da Lare</title>
@@ -93,20 +94,51 @@
 
     <footer class="bottom-form-container">
         <div class="form-box">
-            <h3>Escreva a mensagem</h3>
-            <form action="https://formspree.io/f/mgogqkap" method="POST">
-                <div class="form-group">
-                    <label for="email">Seu email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Sua mensagem:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
+            <h3>Escreva a mensagem
+
+                <!--Thttps://laressa.app.n8n.cloud/webhook-test/143b95ad-2874-4821-9f2e-8f49eebf8fc4 -->
+            </h3>
+                <form id="meu-form">
+            <div>
+            <label for="email">Digite seu email</label>
+            <input type="email" id="email" required>
+            </div>
+            <div>
+            <label for="message">Mande uma message:</label>
+            <textarea id="message" required></textarea>
+            </div>
+            </label>
+            <button type="submit">Send</button>
+        </form>
         </div>
     </footer>
+
+    <script>
+      const form = document.getElementById('meu-form');
+      const textoPost = document.getElementById('texto-post');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        textoPost.innerText = "🤖 A IA está pensando...";
+
+        // Faz a requisição direto para o Webhook de PRODUÇÃO do n8n
+        const response = await fetch('Thttps://laressa.app.n8n.cloud/webhook-test/143b95ad-2874-4821-9f2e-8f49eebf8fc4', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+          })
+        });
+
+        // Pede para o navegador ler a resposta como texto puro
+        const text = await response.text();
+
+        // Substitui o texto pela resposta da IA!
+        textoPost.innerHTML = marked.parse(text);
+      });
+    </script>
 
 </body>
 </html>
