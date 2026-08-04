@@ -12,11 +12,19 @@ html, body {
 
 body {
     background-color: #05020a;
-    background-image: url('https://i.pinimg.com/736x/0e/da/43/0eda43499937ce8a7ad05f14569f8a3b.jpg'), url('https://transparenttextures.com');
+    background-image: url('https://i.pinimg.com/736x/c3/7b/95/c37b958b1d11865f7300fa743e5d2e5b.jpg'), url('https://transparenttextures.com');
     background-repeat: repeat;
     color: #e0d5f0;
     padding-bottom: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: contain;
+    background-attachment: fixed;
+    width: 100%;
+    background-size: 100% auto;
+ 
 }
+
 
 .navbar {
     background-color: rgba(14, 5, 25, 0.95);
@@ -240,6 +248,7 @@ h2, h3 {
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 10px;
+    
 }
 
 .images-grid {
