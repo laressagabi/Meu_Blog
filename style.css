@@ -118,7 +118,7 @@ body {
     border: 2px dashed #8a2be2;
     padding: 15px;
     width: 350px;
-    height: 595px;
+    height: 305px;
     margin-bottom: 25px;
     box-shadow: 5px 5px 0px #250540, 0 0 15px rgba(75, 0, 130, 0.4);
 }
@@ -301,7 +301,8 @@ h2, h3 {
 }
 
 .bottom-form-container {
-    max-width: 950px;
+    max-width: 1050px;
+    max-height: 800px;
     margin: 30px auto 0 auto;
     padding: 0 15px;
 }
